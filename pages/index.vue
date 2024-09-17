@@ -1,11 +1,18 @@
 <template>
   <div class="flex min-h-dvh items-center justify-center">
     <div class="w-full max-w-[340px]">
-      <Login-Header />
+      <Login-Header
+        :title="'Sign in'"
+        :subtitle="'Welcome back! Enter your details to get started'"
+      />
 
-      <Login-Form />
+      <Login-Sign-in-Form />
 
-      <Login-Footer />
+      <Login-Footer
+        :title="`Don't have an account?`"
+        :subtitle="'Create one here!'"
+        :path="'/register'"
+      />
     </div>
   </div>
 </template>
