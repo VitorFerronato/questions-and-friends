@@ -2,7 +2,6 @@
   <div>
     <Header />
     <div><NuxtPage /></div>
-    <div>aqui vai o footer</div>
   </div>
 </template>
 
