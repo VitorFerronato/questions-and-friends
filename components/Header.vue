@@ -1,6 +1,6 @@
 <template>
   <UiNavbar sticky class="flex justify-between items-center  h-16 px-4">
-    <NuxtLink class="text-lg font-semibold" to="/main">
+    <NuxtLink class="text-lg font-semibold hover:underline" to="/main">
       <p>Questions and Friends</p>
     </NuxtLink>
 

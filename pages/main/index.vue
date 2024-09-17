@@ -1,13 +1,34 @@
 <template>
   <div>
-    MAIN Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus eos molestias aliquid
-    quos voluptatem. Nostrum, itaque. Mollitia accusamus asperiores sunt placeat possimus,
-    exercitationem eum molestiae nihil vel saepe iure magnam?
+    <h1 class="text-2xl font-semibold lg:text-3xl">Welcome back {{ user?.displayName }}!</h1>
+
+    <div class="mt-10">
+      <div class="flex gap-2">
+        <UiButton type="button">
+          <Icon name="lucide:plus" />
+          New game
+        </UiButton>
+
+        <NuxtLink to="/main/insert-questions">
+          <UiButton
+            v-if="user?.email == 'vitorferronato@gmail.com'"
+            variant="outline"
+            type="button"
+          >
+            <Icon name="lucide:between-horizontal-start" />
+            Insert questions
+          </UiButton>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <Home-Description />
   </div>
 </template>
 
 <script setup>
   definePageMeta({ middleware: "auth" });
+  const user = useCurrentUser();
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header />
-    
-    <div>
+
+    <div class="mx-80 mt-10">
       <NuxtPage />
     </div>
   </div>

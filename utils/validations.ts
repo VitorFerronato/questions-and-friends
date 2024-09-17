@@ -15,11 +15,7 @@ export const ForgotPasswordSchema = object({
   email: string().required().label("Email").email(),
 });
 
-export const PetSchema = object({
-  id: string().nullable().label("ID"),
-  name: string().required().label("Pet name").min(2).max(50),
-  age: number().required().label("Pet age").min(0).max(50).typeError("Age must be a number"),
-  createdAt: string().nullable().label("Created at"),
-  updatedAt: string().nullable().label("Updated at"),
-  userId: string().nullable().label("User ID"),
+export const WordSchema = object({
+  word: string().required().label("Word"), 
+  tips: string().required('Tips are required'),
 });
