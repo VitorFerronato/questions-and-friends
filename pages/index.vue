@@ -20,6 +20,7 @@
 <script setup>
   definePageMeta({
     layout: "",
+    middleware: "already-logged-in",
   });
   useHead({
     title: "LOGIN | SIGN-IN",

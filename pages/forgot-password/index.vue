@@ -17,5 +17,6 @@
   });
   definePageMeta({
     layout: "",
+    middleware: "already-logged-in",
   });
 </script>

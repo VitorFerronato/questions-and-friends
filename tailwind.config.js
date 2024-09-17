@@ -13,7 +13,7 @@ module.exports = {
           lg: "4rem",
         },
         screens: {
-          "2xl": "1300px",
+          "2xl": "1100px",
         },
       },
       fontFamily: {
@@ -95,5 +95,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms")({ strategy: "class" })],
+  plugins: [require("tailwindcss-animate")],
 };
