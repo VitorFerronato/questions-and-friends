@@ -18,4 +18,5 @@ export const ForgotPasswordSchema = object({
 export const WordSchema = object({
   word: string().required().label("Word"), 
   tips: string().required('Tips are required'),
+  categorie: string().required('Categorie are required')
 });

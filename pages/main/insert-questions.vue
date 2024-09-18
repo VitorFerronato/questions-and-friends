@@ -11,14 +11,18 @@
 
     <form @submit="submit">
       <fieldset :disabled="isLoading">
-        <div>
-          <Field name="word" label="Word *" placeholder="Ex: Coliseum" as="UiVeeInput" />
-          <ErrorMessage name="word" />
+        <div class="flex gap-4">
+          <UiVeeInput name="word" label="Word *" placeholder="Ex: Coliseum" />
+
+          <UiVeeSelect label="Categorie" name="categorie" hint="Select a categorie">
+            <option v-for="categorie in categories" :key="categorie" :value="categorie">
+              {{ categorie }}
+            </option>
+          </UiVeeSelect>
         </div>
 
         <div class="mt-6">
-          <Field name="tips" label="Tips" placeholder="[hint 1, hint 2]" as="UiVeeTextarea" />
-          <ErrorMessage name="tips" />
+          <UiVeeTextarea name="tips" label="Tips" rows="6" placeholder="[hint 1, hint 2]" />
         </div>
 
         <div class="flex justify-end">
@@ -34,6 +38,8 @@
 <script setup lang="ts">
   import { collection, doc, setDoc } from "firebase/firestore";
   import { ref } from "vue";
+
+  const categories = ["object", "people", "place"];
 
   useHead({
     title: "INSERT QUESTIONS",
@@ -55,7 +61,9 @@
       const cardRef = doc(collection(db, collectionName));
 
       await setDoc(cardRef, {
-        ...values,
+        word: values.word,
+        categorie: values.categorie,
+        tips: JSON.parse(values.tips),
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         userId: user.value?.uid,
